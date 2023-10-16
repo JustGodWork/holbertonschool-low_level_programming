@@ -2,10 +2,10 @@
 #include <time.h>
 #include <stdio.h>
 
-/* 
+/*
  * main - Entry point
- * Check n value and show it
- * Return: Always 0 (Success)  
+ * Description: Check n value and show it
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -26,7 +26,7 @@ int main(void)
 
 	if (n < 0)
 	{
-		printf("%d is negative\n", n);	
+		printf("%d is negative\n", n);
 	};
 
 	return (0);
