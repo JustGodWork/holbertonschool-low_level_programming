@@ -2,9 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 
-/*
+/**
  * main - Entry point
- * Description: Check n value and show it
+ * Description: 'Check n value and show it'
  * Return: Always 0 (Success)
  */
 int main(void)
