@@ -8,12 +8,12 @@
  */
 int main(void)
 {
-    char *c = "_putchar\n";
+	char *c = "_putchar\n";
 
-    while (*c)
-    {
-        write(1, c, 1);
-        c++;
-    };
-    return (0);
+	while (*c)
+	{
+		write(1, c, 1);
+		c++;
+	};
+	return (0);
 }
