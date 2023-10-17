@@ -15,6 +15,14 @@ int main(void)
 		hexDigit++;
 	};
 
+	hexDigit = 'a';
+
+	while (hexDigit <= 'f')
+	{
+		putchar(hexDigit);
+		hexDigit++
+	};
+
 	putchar('\n');
 
 	return (0);
