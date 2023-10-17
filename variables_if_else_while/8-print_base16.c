@@ -20,7 +20,7 @@ int main(void)
 	while (hexDigit <= 'f')
 	{
 		putchar(hexDigit);
-		hexDigit++
+		hexDigit++;
 	};
 
 	putchar('\n');
