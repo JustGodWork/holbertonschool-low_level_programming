@@ -1,22 +1,22 @@
-# Define compiler and flags
+# Compiler
 CC = gcc
-CFLAGS = -Wall
 
-# Define source files and the output executable
-SRCS = main.c school.c
-OBJS = $(SRCS)
+# Source files (list them explicitly)
+SRC = main.c file1.c file2.c
+
+# Output executable
 EXECUTABLE = school
 
 # Default target: 'all' will build the executable
 all: $(EXECUTABLE)
 
 # Build the executable
-$(EXECUTABLE): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+$(EXECUTABLE): $(SRC:.c=)
+	$(CC) -o $@ $(SRC)
 
 # Compile source files
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+%: %.c
+	$(CC) -o $@ -c $<
 
 clean:
-	rm -f $(OBJS) $(EXECUTABLE)
+	rm -f $(EXECUTABLE) $(SRC:.c=)
