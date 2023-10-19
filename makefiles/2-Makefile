@@ -1,0 +1,28 @@
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Name of the executable
+NAME = school
+
+# Derived variable for object files
+OBJ = $(SRC:.c=.o)
+
+# Default target: 'all' will build the executable
+all: $(NAME)
+
+# Build the executable
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^
+
+# Compile source files to object files
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+# The dependency rule to recompile only updated source files
+$(OBJ): $(SRC)
+
+clean:
+	rm -f $(OBJ) $(NAME)
