@@ -2,7 +2,7 @@
 CC = gcc
 
 # Source files (list them explicitly)
-SRC = main.c file1.c file2.c
+SRC = main.c school.c
 
 # Output executable
 EXECUTABLE = school
