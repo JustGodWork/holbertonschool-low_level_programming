@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
@@ -33,6 +32,6 @@ int main(void)
 		if (num < 100)
 			putchar(32);
 	}
-	_putchar('\n');
+	putchar('\n');
 	return (0);
 }
