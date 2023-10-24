@@ -8,16 +8,29 @@
  */
 void print_array(int *a, int n)
 {
-	int index;
+	int i;
 
-	if(n < 1)
-		return;
-
-	for (index = 0; index < n; index++)
+	for (i = 0; i < n; i++)
 	{
-		if (index < (n - 1))
-			printf("%d, ", a[index]);
-		else
-			printf("%d\n", a[index]);
+		printf("%d", a[i]);
+		if (i < n - 1)
+			printf(", ");
 	}
+	printf("\n");
 }
+
+// void print_array(int *a, int n)
+// {
+// 	int index;
+
+// 	if (n < 1)
+// 		return;
+
+// 	for (index = 0; index < n; index++)
+// 	{
+// 		if (index < (n - 1))
+// 			printf("%d, ", a[index]);
+// 		else
+// 			printf("%d\n", a[index]);
+// 	}
+// }
