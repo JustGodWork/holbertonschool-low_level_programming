@@ -2,10 +2,10 @@
 #include "main.h"
 
 /**
- * cap_string - osef
- * Description: This function sucks
+ * cap_string - Expect the best. Prepare for the worst.
+ * @s: String to cap
  * Return: char *
-*/
+ */
 char *cap_string(char *s)
 {
     char separators[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\n', ' ', '\t', '\0'};
@@ -15,13 +15,11 @@ char *cap_string(char *s)
     {
         if (s[i] >= 'a' && s[i] <= 'z')
         {
-            for (b = 0;  separators[b] != '\0'; b++)
+            for (b = 0; separators[b] != '\0'; b++)
             {
-                /* todo start str */
                 if (s[i - 1] == separators[b] || (i == 0 && b == 0))
                 {
-                    s[i] -= 32; /* Transform to caps*/
-                    /* EZ Adonis */
+                    s[i] -= 32;
                 }
             }
         }
