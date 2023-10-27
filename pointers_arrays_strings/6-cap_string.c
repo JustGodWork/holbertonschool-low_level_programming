@@ -8,7 +8,22 @@
  */
 char *cap_string(char *s)
 {
-	char separators[] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\n', ' ', '\t', '\0'};
+	char separators[] = {
+		',',
+		';',
+		'.',
+		'!',
+		'?',
+		'"',
+		'(',
+		')',
+		'{',
+		'}',
+		'\n',
+		' ',
+		'\t',
+		'\0'
+	};
 	int i = 0, b;
 
 	while (s[i])
@@ -26,5 +41,5 @@ char *cap_string(char *s)
 		i++;
 	}
 
-	return s;
+	return (s);
 }
