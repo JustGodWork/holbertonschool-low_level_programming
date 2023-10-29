@@ -10,23 +10,28 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, len = 0;
+	char *occurance, *tempNeedle;
 
-	for (i = 0; needle[i] != '\0'; i++)
-		len++;
-
-	for (i = 0; haystack[i] != '\0'; i++)
+	if (!*needle) /* empty needle */
+		return (haystack);
+	while (*haystack)
 	{
-		if (haystack[i] == needle[0])
+		if (*haystack == *needle) /* first ch match */
 		{
-			for (j = 0; j < len; j++)
+			occurance = haystack;
+			tempNeedle = needle;
+			while (*tempNeedle) /* check if match */
 			{
-				if (haystack[i + j] != needle[j])
+				if (*haystack++ != *tempNeedle++)
+				{ /* not a match, reset pointer to first occurance */
+					haystack = occurance;
 					break;
+				}
 			}
-			if (j == len)
-				return (haystack + i);
+			if (occurance != haystack) /* didn't reset, found match */
+				return (occurance);
 		}
+		haystack++;
 	}
-	return ('\0');
+	return (0); /* didn't find match */
 }
