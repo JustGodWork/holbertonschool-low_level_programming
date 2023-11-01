@@ -24,4 +24,3 @@ void _print_rev_recursion(char *s)
 	/* printf("Putchar time: (%c)\n", *s); */
 	_putchar(*s);
 }
-
