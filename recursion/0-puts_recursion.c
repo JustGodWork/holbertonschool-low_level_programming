@@ -8,27 +8,17 @@
  */
 void _puts_recursion(char *s)
 {
-
 	/* if string (s) pointer is char (NULL) */
 	/* return (void) */
-	if (*(s + 1))
+	if (*s == '\0')
 	{
-		/* call _puts_recursion function with */
-		/* incremented pointer (s + 1) */
-		/* to print the next character in the string */
-		s++;
-		_puts_recursion(s);
+		_putchar('\n');
 		return;
 	}
-	else
-	{
-		if (*(s + 1) != '\0')
-		{
-			_putchar(*s);
-			return;
-		}
-	}
 
-	_putchar('\n');
-
+	/* call _puts_recursion function with */
+	/* incremented pointer (s + 1) */
+	/* to print the next character in the string */
+	_putchar(*s);
+	_puts_recursion(s + 1);
 }
