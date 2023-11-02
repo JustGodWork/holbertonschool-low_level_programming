@@ -6,7 +6,6 @@
  * Project holbertonschool-low_level_programming.
  */
 
-
 #ifndef HOLBERTONSCHOOL_LOW_LEVEL_PROGRAMMING_MAIN_H
 #define HOLBERTONSCHOOL_LOW_LEVEL_PROGRAMMING_MAIN_H
 
