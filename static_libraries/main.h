@@ -1,11 +1,3 @@
-/*
- * File main.h.
- * Created by JustGodWork on 02/11/2023.
- * Code created for Holberton School
- * This code cannot be used for production.
- * Project holbertonschool-low_level_programming.
- */
-
 #ifndef HOLBERTONSCHOOL_LOW_LEVEL_PROGRAMMING_MAIN_H
 #define HOLBERTONSCHOOL_LOW_LEVEL_PROGRAMMING_MAIN_H
 
