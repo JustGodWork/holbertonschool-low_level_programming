@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdlib.h>
 
 /**
@@ -12,18 +13,18 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *concat_str;
-	int index, concat_index = 0;
+	int index, concat_index = 0, len = 0;
 
-	char *str, *str2 = s1 != NULL ? s1 : ""; s2 != NULL ? s2 : "";
-	int len1, len2;
+	if (s1 == NULL)
+		s1 = "";
 
-	for (index = 0; s1[index]; index++)
-		len1++;
+	if (s2 == NULL)
+		s2 = "";
 
-	for (index = 0; s2[index]; index++)
-		len2++;
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
 
-	concat_str = malloc(sizeof(char) * len1 + len2 + 1);
+	concat_str = malloc(sizeof(char) * len);
 
 	if (concat_str == NULL)
 		return (NULL);
