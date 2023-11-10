@@ -1,6 +1,3 @@
-#ifndef OBJ_LIKE_H
-#define OBJ_LIKE_H
-
+#ifndef SIZE
 #define SIZE 1024
-
 #endif
