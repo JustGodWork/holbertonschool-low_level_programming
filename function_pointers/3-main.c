@@ -4,9 +4,10 @@
  * main - performs simple operations
  * @argc: number of arguments
  * @argv: array of arguments
- *
- * Return: 0 if successful, 98 if number of arguments is wrong, 99 if operator
- * is not +, -, *, /, or %, 100 if user tries to divide (/ or %) by 0
+ * Return: 0 if successful
+ * 98 if number of args is wrong
+ * 99 if operator is not +, -, *, /, or %
+ * 100 if user tries to divide (/ or %) by 0
  */
 int main(int argc, char *argv[])
 {
