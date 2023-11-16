@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define check_arg(x) (argv[x][0] != '/' && argv[x][0] != '%')
+
 /**
  * struct op - Struct op
  *
