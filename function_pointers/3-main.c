@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	if (check_arg(2) && num2 == 0)
+	if (!check_arg(2) && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
