@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* check_arg: check if arg is not equal to / or % */
 #define check_arg(x) (argv[x][0] != '/' && argv[x][0] != '%')
 
 /**

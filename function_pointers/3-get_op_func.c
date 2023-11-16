@@ -10,11 +10,16 @@
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
-		{"+", op_add}, /* op_add is the name of the function */
-		{"-", op_sub}, /* op_sub is the name of the function */
-		{"*", op_mul}, /* op_mul is the name of the function */
-		{"/", op_div}, /* op_div is the name of the function */
-		{"%", op_mod}, /* op_mod is the name of the function */
+		/* op_add is the name of the function */
+		{"+", op_add},
+		/* op_sub is the name of the function */
+		{"-", op_sub},
+		/* op_mul is the name of the function */
+		{"*", op_mul},
+		/* op_div is the name of the function */
+		{"/", op_div},
+		/* op_mod is the name of the function */
+		{"%", op_mod},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -22,9 +27,12 @@ int (*get_op_func(char *s))(int, int)
 	/* while element of the struct exist */
 	while (ops[i].op != NULL)
 	{
-		/* if the operator argument matches the first element of the struct */
+		/* if the operator argument matches */
+		/* the first element of the struct */
 		if (ops[i].op[0] == s[0])
-			return (ops[i].f); /* return the function associated with the operator */
+			/* return the function */
+			/* associated with the operator */
+			return (ops[i].f);
 		i++;
 	}
 

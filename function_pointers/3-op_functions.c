@@ -37,7 +37,8 @@ int op_mul(int a, int b)
 }
 
 /**
- * op_div - returns the result of the division of a by b
+ * op_div - returns the result
+ * of the division of a by b
  * @a: first integer
  * @b: second integer
  *
@@ -49,7 +50,8 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - returns the remainder of the division of a by b
+ * op_mod - returns the remainder
+ * of the division of a by b
  * @a: first integer
  * @b: second integer
  *
