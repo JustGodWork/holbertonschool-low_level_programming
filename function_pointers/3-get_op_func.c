@@ -29,8 +29,8 @@ int (*get_op_func(char *s))(int, int)
 	{
 		printf("Error\n");
 		exit(99);
+		return (NULL);
 	}
-
 	/* while element of the struct exist */
 	while (ops[i].op != NULL)
 	{
