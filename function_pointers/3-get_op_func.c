@@ -22,15 +22,9 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+
 	int i = 0;
 
-	/* if the string is not 1 char long */
-	/** if (strlen(s) != 1)
-	{
-		printf("Error\n");
-		exit(99);
-		return (NULL);
-	} */
 	/* while element of the struct exist */
 	while (ops[i].op != NULL)
 	{
