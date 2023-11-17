@@ -1,41 +1,29 @@
+#include <stdlib.h>
 #include "3-calc.h"
 
 /**
- * get_op_func - selects the correct function
- * @s: operator passed as argument
- * Return: pointer to the function
- * that corresponds to the operator
- * given as a parameter
+ * get_op_func - function to select correct operation function
+ * @s: operation given (+, *, -, /, %)
+ * Return: pointer to correct operation function (0-4)
  */
-int (*get_op_func(char *s))(int, int)
+
+int (*get_op_func(char *s))(int a, int b)
 {
 	op_t ops[] = {
-		/* op_add is the name of the function */
 		{"+", op_add},
-		/* op_sub is the name of the function */
 		{"-", op_sub},
-		/* op_mul is the name of the function */
 		{"*", op_mul},
-		/* op_div is the name of the function */
 		{"/", op_div},
-		/* op_mod is the name of the function */
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-
 	int i = 0;
 
-	/* while element of the struct exist */
 	while (ops[i].op != NULL)
 	{
-		/* if the operator argument matches */
-		/* the first element of the struct */
-		if (ops[i].op[0] == s[0])
-			/* return the function */
-			/* associated with the operator */
+		if (*s == *ops[i].op)
 			return (ops[i].f);
 		i++;
 	}
-
-	return (NULL); /* if no operator matches, return NULL */
+	return (NULL);
 }
