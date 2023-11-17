@@ -19,14 +19,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	/* if the string is not 1 char long */
-	if (strlen(argv[2]) != 1)
-	{
-		printf("Error\n");
-		exit(99);
-	}
 	cbResult = get_op_func(argv[2]);
-	if (cbResult == NULL)
+	if (cbResult == NULL || (argv[2][1] != '\0'))
 	{
 		printf("Error\n");
 		exit(99);
