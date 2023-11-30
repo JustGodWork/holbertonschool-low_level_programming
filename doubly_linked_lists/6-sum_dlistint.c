@@ -8,14 +8,13 @@
  */
 int sum_dlistint(dlistint_t *head)
 {
-	dlistint_t *node = head;
-	int sum = 0;
+	unsigned int sum = 0;
 
-	while (node)
+	while (head != NULL)
 	{
-		sum += node->n;
-		node = node->next;
+		sum += head->n;
+		head = head->next;
 	}
-
 	return (sum);
 }
+
