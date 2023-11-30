@@ -10,13 +10,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-    unsigned long int xor_result = n ^ m;
-    unsigned int count = 0;
+	unsigned long int num = n ^ m;
+	unsigned int pichu = 0;
+	int len = (sizeof(num) * 8);
 
-    while (xor_result != 0) {
-        count += xor_result & 1;
-        xor_result >>= 1;
-    }
-
-    return count;
+	while (len >= 0)
+	{
+		if (num & 1)
+			pichu++;
+		num = num >> 1;
+		len--;
+	}
+	return (pichu);
 }
