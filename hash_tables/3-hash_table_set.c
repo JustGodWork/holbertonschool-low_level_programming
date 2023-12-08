@@ -16,7 +16,6 @@ hash_node_t *edit_node(
 	if (!value)
 		return (NULL);
 
-	printf("Editing value: %s to %s\n", node->value, value);
 	if (key)
 		node->key = strdup(key);
 	node->value = strdup(value);
@@ -34,7 +33,6 @@ hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *new = malloc(sizeof(hash_node_t *));
 
-	printf("Node is valid: %s\n", new ? "true" : "false");
 	if (!new || !edit_node(new, key, value))
 		return (NULL);
 	return (new);
@@ -49,7 +47,6 @@ int node_add(
 {
 	hash_node_t *new = create_node(key, value);
 
-	printf("Creating node at index %lu\n", index);
 	if (!new)
 		return (0);
 	ht->array[index] = new;
@@ -68,7 +65,6 @@ int node_set(
 
 	if (ht->array[index]->key == key)
 	{
-		printf("Updating node at index %lu\n", index);
 		if (!edit_node(ht->array[index], NULL, value))
 			return (0);
 	}
@@ -97,13 +93,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 
-	printf("Init vars\n");
-
 	if (!ht || !key || !value || !ht->array || !ht->size)
 		return (0);
 
 	index = key_index((unsigned char *)key, ht->size);
-	printf("Getting index %lu\n", index);
 
 	if (!index)
 		return (0);
