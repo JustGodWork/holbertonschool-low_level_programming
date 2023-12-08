@@ -82,6 +82,8 @@ int node_set(
 				ht->array[index] = new;
 				break;
 			}
+
+	return (1);
 }
 
 /**
@@ -94,7 +96,6 @@ int node_set(
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new;
 
 	printf("Init vars\n");
 
@@ -108,9 +109,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	if (!ht->array[index])
-		node_add(ht, key, value, index);
+	{
+		if (!node_add(ht, key, value, index))
+			return (0);
+	}
 	else
-		node_set(ht, key, value, index);
+		if (!node_set(ht, key, value, index))
+			return (0);
 
 	return (1);
 }
