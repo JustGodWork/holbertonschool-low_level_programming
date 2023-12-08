@@ -1,88 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * edit_node - Edit a node
- * @node: pointer of node to edit
- * @key: key to manage
- * @value: value to set related to the key
- * Return: pointer to the edited node
-*/
-hash_node_t *edit_node(
-	hash_node_t *node,
-	const char *key,
-	const char *value
-)
-{
-	if (!value)
-		return (NULL);
-
-	if (key)
-		node->key = strdup(key);
-	node->value = strdup(value);
-
-	return (node);
-}
-
-/**
- * create_node - Create an new node
- * @key: key to set
- * @value: value to set
- * Return: Pointer to created node
-*/
-hash_node_t *create_node(const char *key, const char *value)
-{
-	hash_node_t *new = malloc(sizeof(hash_node_t *));
-
-	if (!new || !edit_node(new, key, value))
-		return (NULL);
-	return (new);
-}
-
-int node_add(
-	hash_table_t *ht,
-	const char *key,
-	const char *value,
-	unsigned long index
-)
-{
-	hash_node_t *new = create_node(key, value);
-
-	if (!new)
-		return (0);
-	ht->array[index] = new;
-	return (1);
-}
-
-int node_set(
-	hash_table_t *ht,
-	const char *key,
-	const char *value,
-	unsigned long index
-)
-{
-	unsigned int i;
-	hash_node_t *new;
-
-	if (ht->array[index]->key == key)
-	{
-		if (!edit_node(ht->array[index], NULL, value))
-			return (0);
-	}
-	else
-		for (i = 0; i < ht->size; i++)
-			if (!ht->array[i])
-			{
-				new = create_node(key, value);
-				if (!new)
-					return (0);
-				ht->array[index] = new;
-				break;
-			}
-
-	return (1);
-}
-
-/**
  * hash_table_set - Define key association with a value
  * @ht: hash_table to edit
  * @key: key to change value associated
@@ -92,6 +10,7 @@ int node_set(
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *new, *temp;
 
 	if (!ht || !key || !value || !ht->array || !ht->size)
 		return (0);
@@ -103,12 +22,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht->array[index])
 	{
-		if (!node_add(ht, key, value, index))
+		new = malloc(sizeof(hash_node_t));
+		if (!new)
 			return (0);
+		new->key = strdup(key);
+		new->value = strdup(value);
+		new->next = ht->array[index];
+		ht->array[index] = new;
 	}
 	else
-		if (!node_set(ht, key, value, index))
-			return (0);
+	{
+		temp = ht->array[index];
+		while (temp)
+		{
+			/* if keys match */
+			if (strcmp(temp->key, key) == 0)
+			{
+				free(temp->value);
+				temp->value = strdup(value);
+				return (1);
+			}
+			temp = temp->next;
+		}
+	}
 
 	return (1);
 }
